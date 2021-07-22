@@ -4,7 +4,8 @@ RUN apk --update add --no-cache git libjpeg-turbo-dev libwebp-dev zlib-dev libxp
     gcc musl-dev make \
     && docker-php-ext-install gd intl mysqli pdo_mysql \
     && pecl install mongodb \
-    && docker-php-ext-enable mongodb \
+    && pecl install xdebug \
+    && docker-php-ext-enable mongodb xdebug \
     && docker-php-source delete \
     && apk del libjpeg-turbo-dev libwebp-dev zlib-dev libxpm-dev libpng-dev icu-dev autoconf gcc musl-dev make \
     && rm -rf /tmp/pear/download/*
